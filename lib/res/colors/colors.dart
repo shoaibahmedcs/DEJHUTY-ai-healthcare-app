@@ -15,5 +15,9 @@ class AppColor {
   static const Color primaryTextColor =  Color(0xff000000);
   static const Color secondaryTextColor =  Color(0xff444648);
 
+  static var appbarColor;
+
+  static var secondaryColor;
+
 
 }
