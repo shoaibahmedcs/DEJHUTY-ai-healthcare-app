@@ -3,7 +3,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 import 'package:getx_mvvm/res/colors/colors.dart';
 
 class Utils{

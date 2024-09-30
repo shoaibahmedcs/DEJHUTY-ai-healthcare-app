@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff175232)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xff175232)),
         useMaterial3: true,
         fontFamily: 'Poppins',
       ),

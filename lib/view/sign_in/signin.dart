@@ -22,7 +22,7 @@ class SigninScreen extends StatelessWidget {
                   width: 100,
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Text(
+                const Text(
                   'Sign in',
                 style: TextStyle(
                   color: Color(0xff000000),
@@ -33,7 +33,7 @@ class SigninScreen extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Enter Email',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
@@ -47,20 +47,20 @@ class SigninScreen extends StatelessWidget {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Enter Password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
 
                     ),
-                    suffixIcon: Icon(Icons.visibility_off_outlined,
+                    suffixIcon: const Icon(Icons.visibility_off_outlined,
                       color: Color(0xff7b7b7b),
                     ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.01),
-                Align(
+                const Align(
                   alignment: Alignment.centerRight,
                   child: Text('Forgot Password?',
                     style: TextStyle(
@@ -83,13 +83,13 @@ class SigninScreen extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(left: 40),
+                        margin: const EdgeInsets.only(left: 40),
                         height: 1,
-                        color: Color(0xff7b7b7b).withOpacity(0.5),
+                        color: const Color(0xff7b7b7b).withOpacity(0.5),
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Text(
+                    const Text(
                       'OR',
                       style: TextStyle(
                         color: Color(0xff7b7b7b),
@@ -101,9 +101,9 @@ class SigninScreen extends StatelessWidget {
                     const SizedBox(width: 10),
                     Expanded(
                       child: Container(
-                        margin: EdgeInsets.only(right: 40),
+                        margin: const EdgeInsets.only(right: 40),
                         height: 1,
-                        color: Color(0xff7b7b7b).withOpacity(0.5),
+                        color: const Color(0xff7b7b7b).withOpacity(0.5),
                       ),
                     ),
                   ],
@@ -115,7 +115,7 @@ class SigninScreen extends StatelessWidget {
                     // color: Color(0xffF5F5F5),
                     borderRadius: BorderRadius.circular(40),
                     border: Border.all(
-                      color: Color(0xff7b7b7b),
+                      color: const Color(0xff7b7b7b),
                     ),
                   ),
                   child: Row(
@@ -127,7 +127,7 @@ class SigninScreen extends StatelessWidget {
                         width: 50,
                       ),
                       const SizedBox(width: 10),
-                      Text('Continue with Google',
+                      const Text('Continue with Google',
                         style: TextStyle(
                           color: Color(0xff000000),
                           fontSize: 22,
@@ -141,7 +141,7 @@ class SigninScreen extends StatelessWidget {
                 Container(
                   child: Row(
                     children: [
-                      Text('Don\'t have an account ? ',
+                      const Text('Don\'t have an account ? ',
                         style: TextStyle(
                           color: Color(0xff000000),
                           fontWeight: FontWeight.bold,
@@ -153,7 +153,7 @@ class SigninScreen extends StatelessWidget {
                           Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpScreen()));
                         },
 
-                        child: Text('Sign Up',
+                        child: const Text('Sign Up',
                           style: TextStyle(
                             color: Color(0xff175232),
                             fontWeight: FontWeight.bold,

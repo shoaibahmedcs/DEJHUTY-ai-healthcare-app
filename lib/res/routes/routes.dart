@@ -12,7 +12,7 @@ class AppRoutes {
     GetPage(
 
       name: RoutesName.splashScreen,
-      page: () =>  SplashScreen(),
+      page: () =>  const SplashScreen(),
       transitionDuration: const Duration(milliseconds: 250),
       transition: Transition.noTransition,
     )

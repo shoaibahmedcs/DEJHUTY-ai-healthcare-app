@@ -39,7 +39,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
+                const Text(
                   'Sign Up',
                   style: TextStyle(
                     color: Color(0xff000000),
@@ -47,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
-                Align(
+                const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Choose Account Type',
@@ -76,8 +76,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 height: 160,
                                 decoration: BoxDecoration(
                                   color: isCommunityAllySelected
-                                      ? Color(0xff175232)
-                                      : Color(0xff07301A), // Change color based on selection
+                                      ? const Color(0xff175232)
+                                      : const Color(0xff07301A), // Change color based on selection
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Center(
@@ -85,7 +85,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Community Ally',
                                         style: TextStyle(
                                           color: Colors.white,
@@ -93,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      SizedBox(height: 20),
+                                      const SizedBox(height: 20),
                                       Image.asset(
                                         'assets/images/community_ally.png',
                                       ),
@@ -109,10 +109,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     height: 30,
                                     width: 30,
                                     decoration: BoxDecoration(
-                                      color: Color(0xff3A9864),
+                                      color: const Color(0xff3A9864),
                                       borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Icon(
                                         Icons.check,
                                         color: Colors.white,
@@ -140,8 +140,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 height: 160,
                                 decoration: BoxDecoration(
                                   color: !isCommunityAllySelected
-                                      ? Color(0xff175232)
-                                      : Color(0xff07301A), // Change color based on selection
+                                      ? const Color(0xff175232)
+                                      : const Color(0xff07301A), // Change color based on selection
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                                 child: Center(
@@ -149,8 +149,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     children: [
-                                      SizedBox(height: 10),
-                                      Text(
+                                      const SizedBox(height: 10),
+                                      const Text(
                                         'Community Member',
                                         style: TextStyle(
                                           color: Colors.white,
@@ -173,10 +173,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                     height: 30,
                                     width: 30,
                                     decoration: BoxDecoration(
-                                      color: Color(0xff3A9864),
+                                      color: const Color(0xff3A9864),
                                       borderRadius: BorderRadius.circular(50),
                                     ),
-                                    child: Center(
+                                    child: const Center(
                                       child: Icon(
                                         Icons.check,
                                         color: Colors.white,
@@ -196,7 +196,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'First Name',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
@@ -208,7 +208,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Last Name',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
@@ -220,7 +220,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'User Name',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
@@ -232,7 +232,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Email',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
@@ -244,13 +244,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
-                    suffixIcon: Icon(
+                    suffixIcon: const Icon(
                       Icons.visibility_off_outlined,
                       color: Color(0xff7b7b7b),
                     ),
@@ -260,13 +260,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Re-enter Password',
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
-                    suffixIcon: Icon(
+                    suffixIcon: const Icon(
                       Icons.visibility_off_outlined,
                       color: Color(0xff7b7b7b),
                     ),

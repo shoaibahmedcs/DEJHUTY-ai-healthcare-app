@@ -147,8 +147,8 @@ class _HealthQuestionsScreenState extends State<HealthQuestionsScreen> {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 300),
-                      pageBuilder: (context, animation, secondaryAnimation) => InterviewQuestionsScreen(),
+                      transitionDuration: const Duration(milliseconds: 300),
+                      pageBuilder: (context, animation, secondaryAnimation) => const InterviewQuestionsScreen(),
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         const begin = Offset(1.0, 0.0); // Start from right
                         const end = Offset(0.0, 0.0); // End at the original position

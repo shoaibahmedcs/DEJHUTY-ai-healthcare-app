@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TaskScreen extends StatelessWidget {
+  const TaskScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -8,11 +10,11 @@ class TaskScreen extends StatelessWidget {
     return Column(
         children: [
           Container(
-            color: Color(0xff3A9864),
+            color: const Color(0xff3A9864),
             height: 40,
             width: double.infinity,
             alignment: Alignment.center,
-            child: Text('Task',
+            child: const Text('Task',
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 25
@@ -26,13 +28,13 @@ class TaskScreen extends StatelessWidget {
                   child: Column(
                       children: [
                         Card(
-                            elevation: 5, color: Color(0xffA3E2F5),
+                            elevation: 5, color: const Color(0xffA3E2F5),
                             child: Container(
                               padding: const EdgeInsets.all(10),
                               child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
+                                    const Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Text('August 22',
@@ -48,7 +50,7 @@ class TaskScreen extends StatelessWidget {
                                         ]
                                     ),
                                     SizedBox(height: height * 0.05),
-                                    Row(
+                                    const Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
@@ -75,7 +77,7 @@ class TaskScreen extends StatelessWidget {
                         SizedBox(
                           height: height * 0.04,
                         ),
-                        TaskCards(
+                        const TaskCards(
                           date: '22',
                           day: 'WEN',
                           event: 'Walking',
@@ -85,7 +87,7 @@ class TaskScreen extends StatelessWidget {
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TaskCards(
+                        const TaskCards(
                           date: '23',
                           day: 'THU',
                           event: 'Psychiatrist',
@@ -95,7 +97,7 @@ class TaskScreen extends StatelessWidget {
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TaskCards(
+                        const TaskCards(
                           date: '24',
                           day: 'FRI',
                           event: 'GYM',
@@ -105,7 +107,7 @@ class TaskScreen extends StatelessWidget {
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TaskCards(
+                        const TaskCards(
                           date: '25',
                           day: 'SAT',
                           event: 'Yoga',
@@ -115,7 +117,7 @@ class TaskScreen extends StatelessWidget {
                         SizedBox(
                           height: height * 0.02,
                         ),
-                        TaskCards(
+                        const TaskCards(
                           date: '26',
                           day: 'SUN',
                           event: 'Yoga',
@@ -149,7 +151,7 @@ class TaskCards extends StatelessWidget {
                 // color: Colors.red,
                 padding: const EdgeInsets.all(5),
                 height: 55,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Color(0xff3A9864),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -159,7 +161,7 @@ class TaskCards extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Icon(Icons.circle, color: Color(0xffffffff), size: 15),
+                    const Icon(Icons.circle, color: Color(0xffffffff), size: 15),
                     // SizedBox(width: 5),
                     Column(
                       mainAxisSize: MainAxisSize.min,
@@ -167,14 +169,14 @@ class TaskCards extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(date,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Color(0xffffffff),
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(day,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Color(0xffffffff),
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -189,8 +191,8 @@ class TaskCards extends StatelessWidget {
               flex: 3,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(0xff3A9864),
-                  borderRadius: BorderRadius.only(
+                  color: const Color(0xff3A9864),
+                  borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                     bottomRight: Radius.circular(10),
@@ -200,7 +202,7 @@ class TaskCards extends StatelessWidget {
                       color: Colors.grey.withOpacity(0.5),
                       spreadRadius: 2,
                       blurRadius: 5,
-                      offset: Offset(0, 3), // changes position of shadow
+                      offset: const Offset(0, 3), // changes position of shadow
                     ),
                   ],
                 ),
@@ -215,14 +217,14 @@ class TaskCards extends StatelessWidget {
                       // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(event,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Color(0xffffffff),
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(time,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Color(0xffffffff),
                             fontSize: 15,
                             fontWeight: FontWeight.bold,

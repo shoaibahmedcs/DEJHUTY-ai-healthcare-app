@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getx_mvvm/data/app_exceptions.dart';
-import 'package:getx_mvvm/utils/utils.dart';
 import 'package:getx_mvvm/view/getStartedScreen.dart';
 
 class SplashScreen extends StatefulWidget {

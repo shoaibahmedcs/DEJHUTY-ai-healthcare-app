@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:chat_bubbles/chat_bubbles.dart';
 
 class ChatsScreen extends StatefulWidget {
+  const ChatsScreen({super.key});
+
   @override
   State<ChatsScreen> createState() => _ChatsScreenState();
 }
@@ -38,11 +40,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
     return (!chatIsSelected) ? Column(
       children: [
         Container(
-          color: Color(0xff3A9864),
+          color: const Color(0xff3A9864),
           height: 40,
           width: double.infinity,
           alignment: Alignment.center,
-          child: Text('Chat',
+          child: const Text('Chat',
             style: TextStyle(
                 color: Colors.white,
                 fontSize: 25
@@ -54,31 +56,31 @@ class _ChatsScreenState extends State<ChatsScreen> {
             child: Column(
               children: [
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Chats(),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],
@@ -91,7 +93,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         :
     Container(
       //add background image
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/chat_background.png'),
           fit: BoxFit.cover,
@@ -100,8 +102,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10),
-            color: Color(0xff3A9864),
+            padding: const EdgeInsets.all(10),
+            color: const Color(0xff3A9864),
             width: double.infinity,
             alignment: Alignment.center,
             child: Row(
@@ -110,15 +112,15 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   radius: 30,
                     child: Image.asset('assets/images/inside_chat.png', height: 100, width: 100
                       ,)),
-                SizedBox(width: 10,),
-                Text('Mujtaba Shaikh',
+                const SizedBox(width: 10,),
+                const Text('Mujtaba Shaikh',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 25
                   ),
                 ),
-                Spacer(),
-                IconButton(onPressed: (){}, icon: Icon(Icons.info), color: Colors.white, iconSize: 35
+                const Spacer(),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.info), color: Colors.white, iconSize: 35
                 ),
               ],
             )
@@ -126,7 +128,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
           Expanded(
             child: ListView.builder(
               reverse: true,
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 final message = messages[messages.length - 1 - index];
@@ -151,11 +153,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
                   // ),
                   child: BubbleSpecialThree(
                     text: message['text']!,
-                    color: isUserMessage ? Color(0xff3A9864) : Color(0xffB5DAC6),
+                    color: isUserMessage ? const Color(0xff3A9864) : const Color(0xffB5DAC6),
                     tail: true,
                     isSender: isUserMessage,
                     textStyle: TextStyle(
-                        color: isUserMessage ? Colors.white : Color(0xff000000),
+                        color: isUserMessage ? Colors.white : const Color(0xff000000),
                         fontSize: 16
                     ),
                   ),
@@ -168,20 +170,20 @@ class _ChatsScreenState extends State<ChatsScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     height: 50,
                     child: TextField(
                       controller: _controller,
                       decoration: InputDecoration(
                         hintText: 'Type your message',
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           Icons.emoji_emotions_outlined,
                           color: Color(0xff3A9864),
                         ),
                         // Apply green border when the TextField is not focused
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xff3A9864), // Green border color
                             width: 2.0,
                           ),
@@ -189,7 +191,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         // Apply default behavior when the TextField is focused
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(50.0),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0xff3A9864), // Blue border when focused (or customize as needed)
                             width: 2.0,
                           ),
@@ -199,9 +201,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
                         suffixIcon: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            IconButton(onPressed: () {}, icon: Icon(Icons.mic, color: Color(0xff3A9864))),
+                            IconButton(onPressed: () {}, icon: const Icon(Icons.mic, color: Color(0xff3A9864))),
                             IconButton(
-                              icon: Icon(Icons.send, color: Color(0xff3A9864)),
+                              icon: const Icon(Icons.send, color: Color(0xff3A9864)),
                               onPressed: _sendMessage,
                             ),
                           ],
@@ -227,7 +229,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         child: Row(
           children: [
             Image.asset('assets/images/chat.png', height: 100, width: 100),
-            Column(
+            const Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

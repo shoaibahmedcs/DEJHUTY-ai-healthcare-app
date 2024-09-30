@@ -7,6 +7,8 @@ import 'package:getx_mvvm/view/home_screens/tasks_screen.dart';
 import 'package:getx_mvvm/view/home_screens/initial_screen.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -79,9 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: const Icon(Icons.mic, color: Color(0xff3A9864), size: 80),
               ),
               const SizedBox(height: 20),
-              Align(
+              const Align(
                 alignment: Alignment.center,
-                child: const Text(
+                child: Text(
                   'Comprehensive Abstract for care providers to outline a more comprehensive treatment plan by connecting patients to community partners and other relevant services; which will include movement, gut health and mindfulness.',
                   // textAlign: TextAlign.center,
                   style: TextStyle(
@@ -103,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     showMenu(
       context: context,
-      color: Color(0xff3A9864),
+      color: const Color(0xff3A9864),
 
       position: RelativeRect.fromLTRB(
         appBarPosition.dx,
@@ -112,9 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
         appBarPosition.dy + 400, // Height of the dropdown menu
       ),
       items: [
-        PopupMenuItem(
+        const PopupMenuItem(
           child: Column(
-            children: const [
+            children: [
               Text(
                 'Notifications',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
@@ -171,21 +173,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller: _searchController,
                 decoration: InputDecoration(
                   hintText: 'Search...',
-                  hintStyle: TextStyle(color: Colors.white),
-                  prefixIcon: Icon(Icons.search, color: Colors.white),
+                  hintStyle: const TextStyle(color: Colors.white),
+                  prefixIcon: const Icon(Icons.search, color: Colors.white),
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
                         _isSearchOpen = !_isSearchOpen; // Toggle search bar
                       });
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.close,
                       size: 30,
-                      color: const Color(0xffffffff),
+                      color: Color(0xffffffff),
                     ),
                   ),
-                  fillColor: Color(0xff3A9864),
+                  fillColor: const Color(0xff3A9864),
                   filled: true,
                 ),
               ),
@@ -254,9 +256,9 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 20),
               Image.asset('assets/images/splash.png', height: 100, width: 100),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'Community Health Organization',
                     style: TextStyle(
@@ -373,7 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.grey.withOpacity(0.5), // Shadow effect
                 spreadRadius: 5,
                 blurRadius: 7,
-                offset: Offset(0, 3), // Shadow position
+                offset: const Offset(0, 3), // Shadow position
               ),
             ],
           ),

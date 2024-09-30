@@ -28,7 +28,7 @@ class Getstartedscreen extends StatelessWidget {
                       // flex: 6,
                       child: Image.asset('assets/images/splash.png')),
                   SizedBox(height: screenHeight * 0.2),
-                  Text('Sign in to stay healthy and fit', style: TextStyle(
+                  const Text('Sign in to stay healthy and fit', style: TextStyle(
                       color: Color(0xff175232),
                       // fontFamily: 'Poppins',
                       fontSize: 20),),
@@ -64,12 +64,12 @@ class GetStartedButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         decoration: BoxDecoration(
-          color: Color(0xff3A9864),
+          color: const Color(0xff3A9864),
           borderRadius: BorderRadius.circular(45),
         ),
         width: 200,
         height: 50,
-        child: Center(child: Text(title, style: TextStyle(color: Colors.white, fontSize: 20),)),
+        child: Center(child: Text(title, style: const TextStyle(color: Colors.white, fontSize: 20),)),
       ),
     );
   }

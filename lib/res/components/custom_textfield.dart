@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
   final Function(String)? onChanged; // Add this line
 
   CustomTextField({
-    Key? key,
+    super.key,
     required this.label,
     this.controller,
     this.keyboardType = TextInputType.text,
@@ -24,7 +24,7 @@ class CustomTextField extends StatelessWidget {
     this.suffix,
     this.readOnly = false,
     this.onChanged, // Add this line
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

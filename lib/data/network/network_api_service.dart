@@ -19,9 +19,9 @@ class NetworkApiService extends BaseApiService {
       final reponse = await http.get(Uri.parse(url)).timeout(
           const Duration(seconds: 10));
       responseJson = returnResponse(reponse);
-    } on SocketException catch (e) {
+    } on SocketException {
       throw InternetException('');
-    } on TimeoutException catch (e) {
+    } on TimeoutException {
       throw RequestTimeOut('Request Time Out');
     } on Exception catch (e) {
       throw AppExceptions(e.toString());
@@ -41,9 +41,9 @@ class NetworkApiService extends BaseApiService {
       body: jsonEncode(data),
       ).timeout(const Duration(seconds: 10));
       responseJson = returnResponse(reponse);
-    } on SocketException catch(e){
+    } on SocketException {
       throw InternetException('');
-    } on TimeoutException catch(e){
+    } on TimeoutException {
       throw RequestTimeOut('Request Time Out');
     } on Exception catch(e){
       throw AppExceptions(e.toString());

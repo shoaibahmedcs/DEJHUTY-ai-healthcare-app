@@ -64,7 +64,7 @@ class InterviewQuestionsScreen extends StatelessWidget {
                     Container(
                       height: 40,
                       width: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xff3A9864),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(15),
@@ -72,7 +72,7 @@ class InterviewQuestionsScreen extends StatelessWidget {
                         ),
                       ),
                       alignment: Alignment.center,
-                      child: Text('Select Goals',
+                      child: const Text('Select Goals',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -186,7 +186,7 @@ class InterviewQuestionsScreen extends StatelessWidget {
                     Container(
                       height: 40,
                       width: double.infinity,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xff3A9864),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(15),
@@ -194,7 +194,7 @@ class InterviewQuestionsScreen extends StatelessWidget {
                         ),
                       ),
                       alignment: Alignment.center,
-                      child: Text('Select Goals',
+                      child: const Text('Select Goals',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -256,8 +256,8 @@ class InterviewQuestionsScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     PageRouteBuilder(
-                      transitionDuration: Duration(milliseconds: 300),
-                      pageBuilder: (context, animation, secondaryAnimation) => ReviewInterviewQuestionsScreen(),
+                      transitionDuration: const Duration(milliseconds: 300),
+                      pageBuilder: (context, animation, secondaryAnimation) => const ReviewInterviewQuestionsScreen(),
                       transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         const begin = Offset(1.0, 0.0); // Start from right
                         const end = Offset(0.0, 0.0); // End at the original position
@@ -477,7 +477,7 @@ class _QuestionFiveOptionsState extends State<QuestionFiveOptions> {
             },
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         TextField(
           decoration: InputDecoration(
             hintText: 'Observation:',
