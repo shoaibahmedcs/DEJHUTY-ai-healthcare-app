@@ -10,8 +10,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  // Variables to track the selected option
-  bool isCommunityAllySelected = true;
+
+  bool _isPasswordVisible = false;
+  bool _isRePasswordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,150 +49,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 const Align(
-                  alignment: Alignment.centerLeft,
+                  alignment: Alignment.center,
                   child: Text(
-                    'Choose Account Type',
+                    'Create Account',
                     style: TextStyle(
                       color: Color(0xff000000),
                       fontSize: 20,
                     ),
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.01),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isCommunityAllySelected = true;
-                            });
-                          },
-                          child: Stack(
-                            clipBehavior: Clip.none, // Allow the tick to overflow
-                            children: [
-                              Container(
-                                height: 160,
-                                decoration: BoxDecoration(
-                                  color: isCommunityAllySelected
-                                      ? const Color(0xff175232)
-                                      : const Color(0xff07301A), // Change color based on selection
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      const Text(
-                                        'Community Ally',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 20),
-                                      Image.asset(
-                                        'assets/images/community_ally.png',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              if (isCommunityAllySelected)
-                                Positioned(
-                                  right: -10,
-                                  bottom: -10,
-                                  child: Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xff3A9864),
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: screenWidth * 0.05),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isCommunityAllySelected = false;
-                            });
-                          },
-                          child: Stack(
-                            clipBehavior: Clip.none, // Allow the tick to overflow
-                            children: [
-                              Container(
-                                height: 160,
-                                decoration: BoxDecoration(
-                                  color: !isCommunityAllySelected
-                                      ? const Color(0xff175232)
-                                      : const Color(0xff07301A), // Change color based on selection
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                child: Center(
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: [
-                                      const SizedBox(height: 10),
-                                      const Text(
-                                        'Community Member',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      Image.asset(
-                                        'assets/images/community_member.png',
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              if (!isCommunityAllySelected)
-                                Positioned(
-                                  right: -10,
-                                  bottom: -10,
-                                  child: Container(
-                                    height: 30,
-                                    width: 30,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xff3A9864),
-                                      borderRadius: BorderRadius.circular(50),
-                                    ),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Colors.white,
-                                        size: 20,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+
                 SizedBox(height: screenHeight * 0.02),
                 TextField(
                   decoration: InputDecoration(
@@ -242,6 +109,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 TextField(
+                  obscureText: !_isPasswordVisible,
                   decoration: InputDecoration(
                     hintText: 'Password',
                     hintStyle: const TextStyle(
@@ -250,25 +118,50 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
-                    suffixIcon: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: Color(0xff7b7b7b),
+                    // suffixIcon: Icon(
+                    //   // Icons.visibility_off_outlined,
+                    //   _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                    //   color: Color(0xff7b7b7b),
+                    // ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                        color: const Color(0xff7b7b7b),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isPasswordVisible = !_isPasswordVisible;
+                        });
+                      },
                     ),
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 TextField(
+                  obscureText: !_isRePasswordVisible,
                   decoration: InputDecoration(
                     hintText: 'Re-enter Password',
                     hintStyle: const TextStyle(
                       color: Color(0xff7b7b7b),
                     ),
+
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                     ),
-                    suffixIcon: const Icon(
-                      Icons.visibility_off_outlined,
-                      color: Color(0xff7b7b7b),
+                    // suffixIcon: const Icon(
+                    //   Icons.visibility_off_outlined,
+                    //   color: Color(0xff7b7b7b),
+                    // ),
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _isRePasswordVisible ? Icons.visibility : Icons.visibility_off,
+                        color: const Color(0xff7b7b7b),
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _isRePasswordVisible = !_isRePasswordVisible;
+                        });
+                      },
                     ),
                   ),
                 ),
@@ -284,6 +177,92 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     );
                   },
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                RichText(
+                  text: const TextSpan(
+                    text: 'By continuing, you agreeing to our ',
+                    style: TextStyle(
+                      color: Color(0xff000000),
+                      fontSize: 12,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'terms and conditions',
+                        style: TextStyle(
+                          color: Color(0xff3A9864),
+                          decoration: TextDecoration.underline,
+                          fontSize: 12,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' and our privacy policies',
+                        style: TextStyle(
+                          color: Color(0xff000000),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 40),
+                        height: 1,
+                        color: const Color(0xff7b7b7b).withOpacity(0.5),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    const Text(
+                      'OR',
+                      style: TextStyle(
+                        color: Color(0xff7b7b7b),
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.bold,
+                        // fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Container(
+                        margin: const EdgeInsets.only(right: 40),
+                        height: 1,
+                        color: const Color(0xff7b7b7b).withOpacity(0.5),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: screenHeight * 0.02),
+                Container(
+                  // width: 300,
+                  decoration: BoxDecoration(
+                    // color: Color(0xffF5F5F5),
+                    borderRadius: BorderRadius.circular(40),
+                    border: Border.all(
+                      color: const Color(0xff7b7b7b),
+                    ),
+                  ),
+                  child: Row(
+                    // mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/google.png',
+                        height: 50,
+                        width: 50,
+                      ),
+                      const SizedBox(width: 10),
+                      const Text('Continue with Google',
+                        style: TextStyle(
+                          color: Color(0xff000000),
+                          fontSize: 22,
+                          // fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
               ],

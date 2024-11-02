@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getx_mvvm/view/questions/review_interview_questions.dart';
-import 'package:getx_mvvm/view/widgets/bottom_navigator.dart';
+import 'package:getx_mvvm/view/home_screens/home.dart';
 import 'package:getx_mvvm/view/widgets/reusable_button.dart';
 
 class InterviewQuestionsScreen extends StatelessWidget {
@@ -13,9 +12,46 @@ class InterviewQuestionsScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Interview Questions',
+            style: TextStyle(
+              color: Color(0xff000000),
+              fontSize: 20,
+            ),
+          ),
+          centerTitle: true,
+          leading: TextButton(
+            onPressed: (){
+              Navigator.push(
+                context,
+                PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 300),
+                  pageBuilder: (context, animation, secondaryAnimation) => const HomeScreen(),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    const begin = Offset(1.0, 0.0); // Start from right
+                    const end = Offset(0.0, 0.0); // End at the original position
+                    const curve = Curves.ease;
+
+                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                    return SlideTransition(
+                      position: animation.drive(tween),
+                      child: child,
+                    );
+                  },
+                ),
+              );
+            }, child: Text('Skip',
+            style: TextStyle(
+                color: Colors.green,
+                fontSize: 14
+            ),
+          ),
+          ),
+        ),
         body: Column(
           children: [
-            // The scrollable content
             Expanded(
               child: SingleChildScrollView(
                 padding: EdgeInsets.symmetric(
@@ -25,17 +61,6 @@ class InterviewQuestionsScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        'Interview Questions',
-                        style: TextStyle(
-                          color: Color(0xff000000),
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
                     const AddQuestion(
                       qNo: 1,
                       question:
@@ -229,7 +254,7 @@ class InterviewQuestionsScreen extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) =>
-                            const ReviewInterviewQuestionsScreen(),
+                            const HomeScreen(),
                           ),
                         );
                       },
@@ -239,42 +264,42 @@ class InterviewQuestionsScreen extends StatelessWidget {
               ),
             ),
             // The fixed bottom navigation
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.05,
-                vertical: screenHeight * 0.02,
-              ),
-              child: BottomNavigator(
-                onPressedForward: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const ReviewInterviewQuestionsScreen(),
-                  //   ),
-                  // );
-
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      transitionDuration: const Duration(milliseconds: 300),
-                      pageBuilder: (context, animation, secondaryAnimation) => const ReviewInterviewQuestionsScreen(),
-                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                        const begin = Offset(1.0, 0.0); // Start from right
-                        const end = Offset(0.0, 0.0); // End at the original position
-                        const curve = Curves.ease;
-
-                        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-                        return SlideTransition(
-                          position: animation.drive(tween),
-                          child: child,
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
-            ),
+            // Padding(
+            //   padding: EdgeInsets.symmetric(
+            //     horizontal: screenWidth * 0.05,
+            //     vertical: screenHeight * 0.02,
+            //   ),
+            //   child: BottomNavigator(
+            //     onPressedForward: () {
+            //       // Navigator.push(
+            //       //   context,
+            //       //   MaterialPageRoute(
+            //       //     builder: (context) => const ReviewInterviewQuestionsScreen(),
+            //       //   ),
+            //       // );
+            //
+            //       Navigator.push(
+            //         context,
+            //         PageRouteBuilder(
+            //           transitionDuration: const Duration(milliseconds: 300),
+            //           pageBuilder: (context, animation, secondaryAnimation) => const ReviewInterviewQuestionsScreen(),
+            //           transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            //             const begin = Offset(1.0, 0.0); // Start from right
+            //             const end = Offset(0.0, 0.0); // End at the original position
+            //             const curve = Curves.ease;
+            //
+            //             var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            //
+            //             return SlideTransition(
+            //               position: animation.drive(tween),
+            //               child: child,
+            //             );
+            //           },
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -477,18 +502,6 @@ class _QuestionFiveOptionsState extends State<QuestionFiveOptions> {
             },
           ),
         ),
-        const SizedBox(height: 10),
-        TextField(
-          decoration: InputDecoration(
-            hintText: 'Observation:',
-            hintStyle: const TextStyle(
-              color: Color(0xff7b7b7b),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-            ),
-          ),
-        )
       ],
     );
   }
